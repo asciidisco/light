@@ -1,0 +1,23 @@
+{
+  "name": "light",
+  "homepage": "https://github.com/nitrogenjs/light",
+  "repository" : {
+      "type" : "git",
+      "url" : "https://github.com/nitrogenjs/light.git"
+  },
+  "author": "Tim Park <timfpark@gmail.com>",
+  "version": "0.1.0",
+  "licenses" : [{
+    "type": "Apache",
+    "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+  }],
+
+  "private": "true",
+  "dependencies": {
+      "nitrogen": "*",
+      "gpio": "*"
+  },
+  "devDependencies": {
+      "mocha": "1.x"
+  }
+}
