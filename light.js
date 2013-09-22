@@ -15,7 +15,7 @@ service.connect(light, function(err, session, lightUpdated) {
     if (err) return console.log('failed to connect light: ' + err);
 
     var switchManager = new nitrogen.SwitchManager(light);
-    switchManager.start(session, { $or: [ { to: light.id }, { from: light.id } ] }, function(err) {
-	if (err) return console.log('switchManager failed to start: ' + JSON.stringify(err));
+    switchManager.start(session, { $or: [ { to: light.id }, { from: light.id } ] }, function(err, message) {
+	if (err) return session.log.error('light switchManager reported error: ' + err);
     });
 });
