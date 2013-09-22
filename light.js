@@ -1,19 +1,21 @@
 var config = require('./config')
-  , MockPin = require('./mockPin')
-  , n2 = require('nitrogen');
+  , GPIOPin = require('nitrogen-gpio-pin')
+  , nitrogen = require('nitrogen');
 
-var service = new n2.Service(config);
+var service = new nitrogen.Service(config);
 
-var light = new MockPin({
+var light = new GPIOPin({
     nickname: 'light',
+    config: {
+       pin: config.pin
+    }
 });
 
-service.connect(light, function(err, session, light) {
+service.connect(light, function(err, session, lightUpdated) {
     if (err) return console.log('failed to connect light: ' + err);
 
-    var switchManager = new n2.SwitchManager(light);
+    var switchManager = new nitrogen.SwitchManager(light);
     switchManager.start(session, { $or: [ { to: light.id }, { from: light.id } ] }, function(err) {
-	if (err) return console.log('switchManager failed to start: ' + err);
+	if (err) return console.log('switchManager failed to start: ' + JSON.stringify(err));
     });
-
 });
