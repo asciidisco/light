@@ -1,4 +1,4 @@
-# Building an image to run Nitrogen on your Raspberry PI.
+# Installation
 
 [Install the latest Raspberry PI Raspbian image](http://www.raspberrypi.org/downloads) using Win32DiskImager or dd on a Mac (`sudo dd bs=128m if=my-image.img of=/dev/rdisk1` where rdisk1 should be the SD card device as appropriate) to an SD card.
 
