@@ -30,6 +30,8 @@ Ok, we are ready to install node.js:
 * `make`
 * `sudo make install`
 
+At this point, you have a generic image that can run node applications.  I highly recommend that you take an image of your SD card at this point so you can start straight from here using Win32DiskImager or `dd`.
+
 Get this application on the device: 
 * `git clone http://github.com/nitrogenjs/light`
 
