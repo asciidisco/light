@@ -8,14 +8,16 @@ From the raspi-config application (which will automatically load on first boot):
 * Enable ssh in the advanced menu so you can remotely shell into the device.
 
 Reboot again, then login with the default credentials and change the default password.
-Configure wifi if desired.  I use wireless protected setup to do this.  Press the button on your router, then execute: `wpa_cli wps_pbc` from your shell prompt.
+Configure wifi if desired.  I use wireless protected setup to do this.  Press the button on your router, then execute: 
+* `wpa_cli wps_pbc`
 
 With a network connection established, let's get the basics updated, upgraded, and installed:
 * `sudo apt-get update`
 * `sudo apt-get upgrade`
 * `sudo apt-get install git-core ntp`
 
-And upgrade the firmware of your Raspberry Pi with `sudo rpi-update`
+And upgrade the firmware of your Raspberry Pi with 
+* `sudo rpi-update`
 
 Ok, we are ready to install node.js:
 * `mkdir ~/dev`
@@ -28,5 +30,15 @@ Ok, we are ready to install node.js:
 * `make`
 * `sudo make install`
 
-Get this application on the device: `git clone http://github.com/nitrogenjs/light`
-And install the deps: `npm install` 
+Get this application on the device: 
+* `git clone http://github.com/nitrogenjs/light`
+
+And install the deps: 
+* `npm install`
+
+And you are ready to run the app:
+* `node light.js`
+
+See the scripts directory for a init.d script to start this on boot.
+
+If you have issues installing this, please let us know about them through an issue on this project so we can correct them.
