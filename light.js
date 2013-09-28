@@ -14,8 +14,9 @@ var light = new GPIOPin({
 service.connect(light, function(err, session, lightUpdated) {
     if (err) return console.log('failed to connect light: ' + err);
 
-    var switchManager = new nitrogen.SwitchManager(light);
-    switchManager.start(session, { $or: [ { to: light.id }, { from: light.id } ] }, function(err, message) {
-	if (err) return session.log.error('light switchManager reported error: ' + err);
+    // start a switch manager, which watches for switchCommands to this light and 
+    // reacts appropriately.
+    new nitrogen.SwitchManager(light).start(session, function(err, message) {
+	       if (err) return session.log.error('light switchManager reported error: ' + err);
     });
 });
